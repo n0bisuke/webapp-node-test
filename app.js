@@ -9,10 +9,12 @@ const CH_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN || 'null'; //Chann
 const SIGNATURE = crypto.createHmac('sha256', CH_SECRET);
 const PORT = process.env.PORT || 3000;
 
-http.createServer(function (request, response) {
-  response.writeHead(200, {'Content-Type': 'text/plain'});
-  response.end(`Hello World\n ${PORT} / ${CH_SECRET} / ${CH_ACCESS_TOKEN}`);
-}).listen(PORT);
+// http.createServer(function (request, response) {
+//   response.writeHead(200, {'Content-Type': 'text/plain'});
+//   response.end(`Hello World\n ${PORT} / ${CH_SECRET} / ${CH_ACCESS_TOKEN}`);
+// }).listen(PORT);
+
+console.log(process.env);
  
 console.log(`Server running at http://127.0.0.1:${PORT}/`);
 
