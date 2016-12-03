@@ -49,7 +49,7 @@ const client = (replyToken, SendMessageObject) => {
 http.createServer((req, res) => {    
     if(req.url !== '/' || req.method !== 'POST'){
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end('');
+        res.end('Hello!');
     }
 
     let body = '';
