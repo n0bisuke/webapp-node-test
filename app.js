@@ -9,6 +9,13 @@ const CH_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN || 'null'; //Chann
 const SIGNATURE = crypto.createHmac('sha256', CH_SECRET);
 const PORT = process.env.PORT || 3000;
 
+// http.createServer(function (request, response) {
+//   response.writeHead(200, {'Content-Type': 'text/plain'});
+//   response.end(`Hello World\n ${CH_SECRET} / ${CH_ACCESS_TOKEN}`);
+// }).listen(PORT);
+ 
+// console.log(`Server running at http://127.0.0.1:${PORT}/`);
+
 /**
  * httpリクエスト部分
  */
@@ -49,7 +56,7 @@ const client = (replyToken, SendMessageObject) => {
 http.createServer((req, res) => {    
     if(req.url !== '/' || req.method !== 'POST'){
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end(`hello, LINE BOT, ${process.env.WEBSITE_NODE_DEFAULT_VERSION}`);
+        res.end(`${process.env.WEBSITE_NODE_DEFAULT_VERSION} / ${CH_SECRET}`);
     }
 
     let body = '';
@@ -57,7 +64,12 @@ http.createServer((req, res) => {
         body += chunk;
     });        
     req.on('end', () => {
-        let WebhookEventObject = JSON.parse(body).events[0];        
+      if(body == ''){
+        console.log(`bodyはから`);
+        return;
+      }
+      
+        let WebhookEventObject = JSON.parse(body).events[0]; 
         //メッセージが送られて来た場合
         if(WebhookEventObject.type === 'message'){
             let SendMessageObject;
