@@ -7,12 +7,12 @@ const REPLY_PATH = '/v2/bot/message/reply';//リプライ用
 const CH_SECRET = process.env.LINE_CHANNEL_SECRET || 'null'; //Channel Secretを指定
 const CH_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN || 'null'; //Channel Access Tokenを指定
 const SIGNATURE = crypto.createHmac('sha256', CH_SECRET);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8124;
 
-// http.createServer(function (request, response) {
-//   response.writeHead(200, {'Content-Type': 'text/plain'});
-//   response.end(`Hello World\n ${PORT} / ${CH_SECRET} / ${CH_ACCESS_TOKEN}`);
-// }).listen(PORT);
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end(`Hello World\n ${PORT} / ${CH_SECRET} / ${CH_ACCESS_TOKEN}`);
+}).listen(PORT);
 
 console.log(process.env);
  
