@@ -1,15 +1,3 @@
-// const http = require('http');
-// const PORT = process.env.PORT || 3000;
-// const USERNAME = process.env.WEBSITE_NODE_USER || 'World';
-
-// http.createServer(function (request, response) {
-//   response.writeHead(200, {'Content-Type': 'text/plain'});
-//   response.end(`Hello ${USERNAME}\n`);
-// }).listen(PORT);
-
-// console.log(`Server running at http:localhost:${PORT}`);
-
-
 const http = require('http');
 const https = require('https');
 const crypto = require('crypto');
@@ -19,7 +7,7 @@ const REPLY_PATH = '/v2/bot/message/reply';//リプライ用
 const CH_SECRET = process.env.LINE_CHANNEL_SECRET; //Channel Secretを指定
 const CH_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN; //Channel Access Tokenを指定
 const SIGNATURE = crypto.createHmac('sha256', CH_SECRET);
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 /**
  * httpリクエスト部分
