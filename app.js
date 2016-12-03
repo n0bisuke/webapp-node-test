@@ -4,8 +4,8 @@ const crypto = require('crypto');
 
 const HOST = 'api.line.me'; 
 const REPLY_PATH = '/v2/bot/message/reply';//リプライ用
-const CH_SECRET = process.env.LINE_CHANNEL_SECRET_2 || 'null'; //Channel Secretを指定
-const CH_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN_2 || 'null'; //Channel Access Tokenを指定
+const CH_SECRET = process.env.LINE_CHANNEL_SECRET || 'null'; //Channel Secretを指定
+const CH_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN || 'null'; //Channel Access Tokenを指定
 const SIGNATURE = crypto.createHmac('sha256', CH_SECRET);
 const PORT = process.env.PORT || 3000;
 
