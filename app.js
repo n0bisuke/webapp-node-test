@@ -14,8 +14,8 @@ http.createServer(function (request, response) {
   response.end(`Hello World\n ${PORT} / ${CH_SECRET} / ${CH_ACCESS_TOKEN}`);
 }).listen(PORT);
 
-console.log(process.env);
- 
+// console.log(process.env);
+
 console.log(`Server running at http://127.0.0.1:${PORT}/`);
 
 
