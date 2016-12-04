@@ -53,9 +53,6 @@ const client = (replyToken, SendMessageObject) => {
 
 http.createServer((req, res) => {    
     if(req.url !== '/' || req.method !== 'POST'){
-        console.log('hello');
-        process.stdout.write('hello world');
-        console.error('eee');
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.end(`konbanwa! \n ${process.env.WEBSITE_NODE_DEFAULT_VERSION} / ${CH_SECRET} / ${CH_ACCESS_TOKEN}`);
     }
@@ -65,10 +62,10 @@ http.createServer((req, res) => {
         body += chunk;
     });        
     req.on('end', () => {
-      if(body == ''){
-        console.log(`bodyはから`);
-        return;
-      }
+    //   if(body == ''){
+    //     console.log(`bodyはから`);
+    //     return;
+    //   }
       
         let WebhookEventObject = JSON.parse(body).events[0]; 
         //メッセージが送られて来た場合
