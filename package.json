@@ -9,5 +9,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.0.1",
+    "superagent": "^3.1.0"
+  }
 }
