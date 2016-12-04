@@ -30,6 +30,14 @@ server.connection({
 });
 
 server.route({
+    method: 'GET',
+    path: '/',
+    handler: function (request, reply) {
+        reply('Hello, world!');
+    }
+});
+
+server.route({
     method: 'POST',
     path:'/callback',
     handler: (request, reply) => {
