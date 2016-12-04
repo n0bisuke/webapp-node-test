@@ -92,3 +92,20 @@ http.createServer((req, res) => {
 }).listen(PORT);
 
 console.log(`Server running at ${PORT}`);
+
+/*
+
+{
+    "name"        : "worker",
+    "script"      : "./app.js", 
+    "instances"   : 1,
+    "merge_logs"  : true,
+    "log_date_format" : "YYYY-MM-DD HH:mm",
+    "watch": ["./app.js"],
+    "watch_options": {
+    "followSymlinks": true,
+    "usePolling"   : true,
+    "interval"    : 5
+    }
+}
+*/
