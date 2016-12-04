@@ -8,6 +8,8 @@ const REPLY_URL = 'https://api.line.me/v2/bot/message/reply'; //リプライ用
 const CH_SECRET = process.env.LINE_CHANNEL_SECRET || require('./config').LINE_CHANNEL_SECRET; //Channel Secretを指定
 const CH_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN || require('./config').LINE_CHANNEL_ACCESS_TOKEN; //Channel Access Tokenを指定
 const SIGNATURE = crypto.createHmac('sha256', CH_SECRET);
+const PORT = process.env.PORT || 3000;
+
 //
 let client = (replyToken, SendMessageObject) => {
     request
@@ -24,7 +26,7 @@ let client = (replyToken, SendMessageObject) => {
 const server = new Hapi.Server();
 server.connection({
     host: 'localhost',
-    port: 3000
+    port: PORT
 });
 
 server.route({
