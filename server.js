@@ -4,9 +4,13 @@ const http = require('http');
 const PORT = process.env.PORT || 3000;
 
 http.createServer((req, res) => {    
-    if(req.url !== '/' || req.method !== 'POST'){
+    if(req.url === '/' || req.method !== 'POST'){
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end('hello');
+        res.end('hello!!!');
+    }
+    if(req.url === '/hoge' && req.method === 'GET'){
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.end('world');
     }
 
     let body = '';
